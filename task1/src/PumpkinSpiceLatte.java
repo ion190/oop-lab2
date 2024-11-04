@@ -18,10 +18,4 @@ public class PumpkinSpiceLatte extends Cappuccino {
     public String getName() {
         return name;
     }
-
-    public void printCoffeeDetails() {
-        System.out.println("Making " + this.name);
-        super.printCoffeeDetails();
-        System.out.println("Mg of pumpkin spice: " + this.mgOfPumpkinSpice);
-    }
 }
