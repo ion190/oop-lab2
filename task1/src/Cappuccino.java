@@ -20,8 +20,15 @@ public class Cappuccino extends Coffee {
     }
 
     public void printCoffeeDetails() {
-        System.out.println("Making " + this.coffee);
+        System.out.println(this.coffee);
         super.printCoffeeDetails();
         System.out.println("Ml of milk: " + this.mlOfMilk);
+    }
+
+    public Cappuccino makeCappuccino() {
+        System.out.println("Making " + this.coffee);
+        System.out.println("Intensity set to " + this.coffeeIntensity);
+        System.out.println("Adding " + this.mlOfMilk + " mls of milk");
+        return this;
     }
 }
