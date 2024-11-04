@@ -18,4 +18,10 @@ public class SyrupCappuccino extends Cappuccino {
     public String getCoffee() {
         return coffee;
     }
+
+    public void printCoffeeDetails() {
+        System.out.println("Making " + this.coffee);
+        super.printCoffeeDetails();
+        System.out.println("Syrup type: " + this.syrup);
+    }
 }
