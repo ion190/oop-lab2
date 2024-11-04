@@ -1,4 +1,5 @@
 import java.io.IOException;
+// java Main faker.txt fakefile.txt
 
 public class Main {
     public static void main(String[] args) {
