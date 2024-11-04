@@ -1,3 +1,3 @@
-public enum Intensity {
+enum Intensity {
     LIGHT, NORMAL, STRONG;
 }

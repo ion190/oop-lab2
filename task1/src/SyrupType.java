@@ -1,3 +1,3 @@
-public enum SyrupType {
+enum SyrupType {
     MACADAMIA, VANILLA, COCONUT, CARAMEL, CHOCOLATE, POPCORN;
 }

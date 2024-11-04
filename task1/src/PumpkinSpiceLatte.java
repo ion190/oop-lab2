@@ -1,9 +1,10 @@
-public class PumpkinSpiceLatte extends Cappuccino {
+class PumpkinSpiceLatte extends Cappuccino {
     protected int mgOfPumpkinSpice;
-    protected final String name = "Pumpkin Spice Latte";
+    protected final String latteName = "Pumpkin Spice Latte";
 
-    public PumpkinSpiceLatte(Intensity coffeeIntensity, int mlOfMilk) {
+    PumpkinSpiceLatte(Intensity coffeeIntensity, int mlOfMilk, int mgOfPumpkinSpice) {
         super(coffeeIntensity, mlOfMilk);
+        this.mgOfPumpkinSpice = mgOfPumpkinSpice;
     }
 
     public int getMgOfPumpkinSpice() {
@@ -14,19 +15,17 @@ public class PumpkinSpiceLatte extends Cappuccino {
         this.mgOfPumpkinSpice = mgOfPumpkinSpice;
     }
 
-    @Override
-    public String getName() {
-        return name;
+    public String getLatteName() {
+        return latteName;
     }
 
     public void printCoffeeDetails() {
-        System.out.println(this.name);
-        super.printCoffeeDetails();
-        System.out.println("Mg of pumpkin spice: " + this.mgOfPumpkinSpice);
+        super.printCoffeeDetails(this.latteName);
+        System.out.println("Mg of pumpkin spice: " + this.getMgOfPumpkinSpice());
     }
 
     public PumpkinSpiceLatte makePumpkinSpiceLatte() {
-        System.out.println("Making " + this.name);
+        System.out.println("Making " + this.latteName);
         System.out.println("Intensity set to " + this.coffeeIntensity);
         System.out.println("Adding " + this.mlOfMilk + " mls of milk");
         System.out.println("Adding " + this.mgOfPumpkinSpice + " mls of pumpkin spice");

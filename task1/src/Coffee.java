@@ -1,8 +1,8 @@
-public class Coffee {
+class Coffee {
     protected Intensity coffeeIntensity;
     protected final String name = "Coffee";
 
-    public Coffee(Intensity coffeeIntensity) {
+    Coffee(Intensity coffeeIntensity) {
         this.coffeeIntensity = coffeeIntensity;
     }
 

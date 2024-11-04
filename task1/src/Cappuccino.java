@@ -1,8 +1,8 @@
-public class Cappuccino extends Coffee {
+class Cappuccino extends Coffee {
     protected int mlOfMilk;
     protected final String coffee = "Cappuccino";
 
-    public Cappuccino(Intensity coffeeIntensity, int mlOfMilk) {
+    Cappuccino(Intensity coffeeIntensity, int mlOfMilk) {
         super(coffeeIntensity);
         this.mlOfMilk = mlOfMilk;
     }
@@ -20,13 +20,20 @@ public class Cappuccino extends Coffee {
     }
 
     public void printCoffeeDetails() {
-        System.out.println(this.coffee);
+        printCoffeeDetails(this.coffee);
+    }
+    public void printCoffeeDetails(String coffeeName) {
+        System.out.println(coffeeName);
         super.printCoffeeDetails();
         System.out.println("Ml of milk: " + this.mlOfMilk);
     }
 
     public Cappuccino makeCappuccino() {
-        System.out.println("Making " + this.coffee);
+        return makeCappuccino(this.coffee);
+    }
+
+    public Cappuccino makeCappuccino(String coffeeName) {
+        System.out.println("Making " + coffeeName);
         System.out.println("Intensity set to " + this.coffeeIntensity);
         System.out.println("Adding " + this.mlOfMilk + " mls of milk");
         return this;

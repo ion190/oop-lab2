@@ -1,15 +1,14 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        Americano americanoCoffee = new Americano(Intensity.LIGHT, 200);
-        Cappuccino cappuccino = new Cappuccino(Intensity.NORMAL, 150);
+        Americano americano = new Americano(Intensity.NORMAL, 200);
+        Cappuccino cappuccino = new Cappuccino(Intensity.STRONG, 150);
+        PumpkinSpiceLatte pumpkinSpiceLatte = new PumpkinSpiceLatte(Intensity.NORMAL, 100, 300);
+        SyrupCappuccino syrupCappuccino = new SyrupCappuccino(Intensity.LIGHT, 150, SyrupType.CHOCOLATE);
 
-        americanoCoffee.printCoffeeDetails();
+        Barista barista = new Barista();
 
-        cappuccino.makeCappuccino();
-
-        SyrupCappuccino syrupCappuccino = new SyrupCappuccino(Intensity.LIGHT, 100);
-        syrupCappuccino.printCoffeeDetails();
-
-        syrupCappuccino.makeSyrupCappuccino();
+        barista.prepareCoffees(Arrays.asList(americano, cappuccino, pumpkinSpiceLatte, syrupCappuccino));
     }
 }
