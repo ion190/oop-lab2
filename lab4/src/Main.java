@@ -1,3 +1,7 @@
+import task1.Car;
+import task1.Queue;
+import task1.SimpleQueue;
+
 public class Main {
     public static void main(String[] args) {
         Queue<Car> carQueue = new SimpleQueue<>();

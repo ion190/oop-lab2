@@ -1,6 +1,8 @@
+package task1;
+
 public class QueueTest {
     public static void main(String[] args) {
-        System.out.println("Testing Integer Queue:");
+        System.out.println("Testing Integer task1.Queue:");
         Queue<Integer> integerQueue = new SimpleQueue<>();
 
         System.out.println("Is the queue initially empty? " + integerQueue.isEmpty());
@@ -18,7 +20,7 @@ public class QueueTest {
         assert integerQueue.isEmpty();
         System.out.println("Is the queue empty after dequeue? " + integerQueue.isEmpty());
 
-        System.out.println("\nTesting String Queue:");
+        System.out.println("\nTesting String task1.Queue:");
         Queue<String> stringQueue = new SimpleQueue<>();
 
         System.out.println("Enqueuing 'Car1'...");

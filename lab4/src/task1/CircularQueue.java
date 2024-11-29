@@ -1,3 +1,5 @@
+package task1;
+
 public class CircularQueue<T> {
     private T[] queue;
     private int front, rear, size, capacity;
@@ -14,7 +16,7 @@ public class CircularQueue<T> {
     // Enqueue an element
     public boolean enqueue(T element) {
         if (isFull()) {
-            System.out.println("Queue is full!");
+            System.out.println("task1.Queue is full!");
             return false;
         }
 
@@ -31,7 +33,7 @@ public class CircularQueue<T> {
     // Dequeue an element
     public T dequeue() {
         if (isEmpty()) {
-            System.out.println("Queue is empty!");
+            System.out.println("task1.Queue is empty!");
             return null;
         }
 
@@ -39,7 +41,7 @@ public class CircularQueue<T> {
         queue[front] = null; // Optional: Clear the slot for garbage collection
 
         if (front == rear) {
-            // Queue is now empty
+            // task1.Queue is now empty
             front = -1;
             rear = -1;
         } else {
@@ -53,7 +55,7 @@ public class CircularQueue<T> {
     // Peek the front element
     public T peek() {
         if (isEmpty()) {
-            System.out.println("Queue is empty!");
+            System.out.println("task1.Queue is empty!");
             return null;
         }
 

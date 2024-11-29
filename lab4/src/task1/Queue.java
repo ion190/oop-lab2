@@ -1,3 +1,5 @@
+package task1;
+
 public interface Queue<T> {
     void enqueue(T item);       // Add an item to the queue
     T dequeue();                // Remove and return the first item

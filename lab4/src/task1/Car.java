@@ -1,3 +1,5 @@
+package task1;
+
 public class Car {
     public static final String[] CAR_TYPES = {"ELECTRIC", "GAS"};
     public static final String[] PASSENGER_TYPES = {"PEOPLE", "ROBOTS"};
@@ -17,7 +19,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "task1.Car{" +
                 "carType='" + carType + '\'' +
                 ", passengerType='" + passengerType + '\'' +
                 ", isDining=" + isDining +
