@@ -1,15 +1,15 @@
 package task2;
 
 public class PeopleDinner implements Dineable {
-    private static int totalPeopleServed = 0;
+    private static int peopleServed = 0;
 
     @Override
     public void serveDinner(String carId) {
-        totalPeopleServed++;
         System.out.println("Serving dinner to people in car " + carId + ".");
+        peopleServed++;
     }
 
-    public static int getTotalPeopleServed() {
-        return totalPeopleServed;
+    public static int getPeopleServed() {
+        return peopleServed;
     }
 }

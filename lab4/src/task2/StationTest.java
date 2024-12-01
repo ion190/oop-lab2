@@ -1,28 +1,30 @@
 package task2;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StationTest {
-    public static void main(String[] args) {
-        // Refuelable tests
-        Refuelable electricStation1 = new ElectricStation();
-        Refuelable electricStation2 = new ElectricStation();
-        Refuelable gasStation = new GasStation();
-
-        electricStation1.refuel("E1");
-        electricStation2.refuel("E2");
-        gasStation.refuel("G1");
-
-        System.out.println("\nTotal Electric Cars Refueled: " + ElectricStation.getTotalElectricCarsRefueled());
-        System.out.println("Total Gas Cars Refueled: " + GasStation.getTotalGasCarsRefueled());
-
-        // Dineable tests
+    @Test
+    public void testServiceStations() {
         Dineable peopleDinner = new PeopleDinner();
         Dineable robotDinner = new RobotDinner();
+        Refuelable electricStation = new ElectricStation();
+        Refuelable gasStation = new GasStation();
 
-        peopleDinner.serveDinner("P1");
-        robotDinner.serveDinner("R1");
-        robotDinner.serveDinner("R2");
+        // Serve dinners
+        peopleDinner.serveDinner("Car1");
+        robotDinner.serveDinner("Car2");
+        robotDinner.serveDinner("Car3");
 
-        System.out.println("\nTotal People Served: " + PeopleDinner.getTotalPeopleServed());
-        System.out.println("Total Robots Served: " + RobotDinner.getTotalRobotsServed());
+        // Refuel cars
+        electricStation.refuel("Car4");
+        electricStation.refuel("Car5");
+        gasStation.refuel("Car6");
+
+        // Assertions
+        assertEquals(1, PeopleDinner.getPeopleServed());
+        assertEquals(2, RobotDinner.getRobotsServed());
+        assertEquals(2, ElectricStation.getElectricCarsServed());
+        assertEquals(1, GasStation.getGasCarsServed());
     }
+
 }

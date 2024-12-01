@@ -11,7 +11,7 @@ MIN_WAIT = 500  # in ms
 MAX_WAIT = 3000  # in ms
 SECOND = 1000.0
 
-# task1.Car properties TODO maybe add more in the future year
+# task2.Car properties TODO maybe add more in the future year
 # If there's a change, change stats also
 CAR_TYPES = ["ELECTRIC", "GAS"]
 PASSENGER_TYPES = ["PEOPLE", "ROBOTS"]
@@ -61,7 +61,7 @@ if __name__ == "__main__":
             "consumption": consumption,
         }
 
-        file_path = os.path.join(OUTPUT_DIR, f"task1.Car{i}.json")
+        file_path = os.path.join(OUTPUT_DIR, f"task2.Car{i}.json")
         with open(file_path, "w") as f:
             json.dump(car, f)
 

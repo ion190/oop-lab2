@@ -1,40 +1,27 @@
 package task1;
 
-public class QueueTest {
-    public static void main(String[] args) {
-        System.out.println("Testing Integer task1.Queue:");
-        Queue<Integer> integerQueue = new SimpleQueue<>();
+import org.junit.jupiter.api.Test;
 
-        System.out.println("Is the queue initially empty? " + integerQueue.isEmpty());
-        assert integerQueue.isEmpty();
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-        System.out.println("Enqueuing 10...");
-        integerQueue.enqueue(10);
-        System.out.println("Current size: " + integerQueue.size());
-        assert integerQueue.size() == 1;
+class QueueTest {
 
-        System.out.println("Peeking front element: " + integerQueue.peek());
-        assert integerQueue.peek() == 10;
 
-        System.out.println("Dequeuing element: " + integerQueue.dequeue());
-        assert integerQueue.isEmpty();
-        System.out.println("Is the queue empty after dequeue? " + integerQueue.isEmpty());
+        @Test
+        void testQueueImplementation () {
+            Queue<Integer> queue = new ArrayQueue<>();
 
-        System.out.println("\nTesting String task1.Queue:");
-        Queue<String> stringQueue = new SimpleQueue<>();
+            queue.enqueue(1);
+            queue.enqueue(2);
+            queue.enqueue(3);
+            assertEquals(3, queue.size());
+            assertEquals(1, queue.peek());
+            assertEquals(1, queue.dequeue());
+            assertEquals(2, queue.size());
 
-        System.out.println("Enqueuing 'Car1'...");
-        stringQueue.enqueue("Car1");
-        System.out.println("Enqueuing 'Car2'...");
-        stringQueue.enqueue("Car2");
+        }
 
-        System.out.println("Current size: " + stringQueue.size());
-        assert stringQueue.size() == 2;
-
-        System.out.println("Dequeuing element: " + stringQueue.dequeue());
-        assert stringQueue.peek().equals("Car2");
-
-        System.out.println("Peeking front element: " + stringQueue.peek());
-        System.out.println("All tests passed!");
-    }
 }
+
+

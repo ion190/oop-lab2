@@ -5,47 +5,37 @@ import task2.Refuelable;
 import task2.Dineable;
 
 public class CarStation {
-    private Dineable diningService;
-    private Refuelable refuelingService;
-    private Queue<Car> queue;
+    private final Dineable diningService;
+    private final Refuelable refuelingService;
+    private final Queue<Car> queue;
 
-    // Constructor with dependency injection
-    public CarStation(Dineable diningService, Refuelable refuelingService, Queue<Car> queue) {
+    public CarStation(Dineable diningService, Refuelable refuelingService) {
         this.diningService = diningService;
         this.refuelingService = refuelingService;
-        this.queue = queue;
+        this.queue = new LinkedList<>();
     }
 
-    // Add a car to the queue
     public void addCar(Car car) {
         queue.add(car);
-        System.out.println("Added car: " + car.getId());
     }
 
-    // Serve cars in the queue
     public void serveCars() {
         while (!queue.isEmpty()) {
-            Car car = queue.poll(); // Retrieve and remove the head of the queue
-            System.out.println("Processing car: " + car.getId());
+            Car car = queue.poll();
 
-            // Serve dinner if the car has IS_DINING set to true
+            // Serve dinner if the car wants to dine
             if (car.isDining()) {
-                if (car.getPassengerType().equals("PEOPLE")) {
-                    diningService.serveDinner(car.getId());
-                } else if (car.getPassengerType().equals("ROBOTS")) {
-                    diningService.serveDinner(car.getId());
-                }
+                diningService.serveDinner(car.getId());
             }
 
-            // Refuel based on car type
-            if (car.getCarType().equals("ELECTRIC")) {
-                refuelingService.refuel(car.getId());
-            } else if (car.getCarType().equals("GAS")) {
-                refuelingService.refuel(car.getId());
-            }
+            // Refuel the car
+            refuelingService.refuel(car.getId());
 
-            System.out.println("Finished processing car: " + car.getId());
+            System.out.println("Finished serving car " + car.getId());
         }
-        System.out.println("All cars processed. Queue is now empty.");
+    }
+
+    public int getQueueSize() {
+        return queue.size();
     }
 }

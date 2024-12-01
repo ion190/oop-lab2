@@ -1,39 +1,27 @@
 package task3;
-
-import task2.Dineable;
-import task2.ElectricStation;
 import task2.PeopleDinner;
-import task2.Refuelable;
-
-import java.util.Queue;
-import java.util.LinkedList;
+import task2.GasStation;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class CarStationTest {
-    public static void main(String[] args) {
-        // Create instances of services
-        Dineable peopleDinner = new PeopleDinner();
-        Refuelable electricStation = new ElectricStation();
+    @Test
+    public void testServeMixedCars() {
+        PeopleDinner peopleDinner = new PeopleDinner();
+        GasStation gasStation = new GasStation();
+        CarStation carStation = new CarStation(peopleDinner, gasStation);
 
-        // Create a queue and a CarStation
-        Queue<Car> carQueue = new LinkedList<>();
-        CarStation carStation = new CarStation(peopleDinner, electricStation, carQueue);
+        Car car5 = new Car("5", "GAS", "PEOPLE", true, 20);
+        Car car6 = new Car("6", "GAS", "PEOPLE", false, 15);
 
-        // Test 1: Add and serve an electric car with people dining
-        Car car1 = new Car("Car1", "ELECTRIC", "PEOPLE", true);
-        carStation.addCar(car1);
+        carStation.addCar(car5);
+        carStation.addCar(car6);
+        assertEquals(2, carStation.getQueueSize());
 
-        // Test 2: Add and serve a gas car without dining
-        Car car2 = new Car("Car2", "GAS", "ROBOTS", false);
-        carStation.addCar(car2);
-
-        // Test 3: Add and serve a robot-electric car with dining
-        Car car3 = new Car("Car3", "ELECTRIC", "ROBOTS", true);
-        carStation.addCar(car3);
-
-        // Serve all cars
         carStation.serveCars();
 
-        // Verify queue is empty
-        assert carQueue.isEmpty() : "Queue should be empty after serving all cars.";
+        assertEquals(0, carStation.getQueueSize());
+        assertEquals(1, PeopleDinner.getPeopleServed()); // Only one dined
+        assertEquals(2, GasStation.getGasCarsServed());
     }
 }
